@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SD WOHNBAU - Coming Soon</title>
+    <meta name="description" content="SD WOHNBAU - Unsere neue Webseite entsteht gerade.">
+    <style>
+        /* Grundlegende Einstellungen */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            height: 100vh; /* Volle Bildschirmhöhe */
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            overflow: hidden; /* Keine Scrollbalken */
+            
+            /* Animierter Hintergrund */
+            /* Wir nutzen #727070 als Basis und variieren leicht in Helligkeit */
+            background: linear-gradient(-45deg, #565454, #727070, #8e8c8c, #727070);
+            background-size: 400% 400%;
+            animation: gradientAnimation 8s ease infinite;
+        }
+
+        /* Animation für den Hintergrund */
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Container für Inhalt */
+        .container {
+            text-align: center;
+            padding: 20px;
+            z-index: 1;
+        }
+
+        /* Logo Einstellungen */
+        .logo {
+            max-width: 450px; /* Maximale Breite */
+            width: 80%; /* Auf Handys responsive */
+            height: auto;
+            margin-bottom: 40px;
+            /* Optional: Leichter Schatten für Tiefe */
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.2));
+            
+            /* Sanftes Einblenden beim Laden */
+            opacity: 0;
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+
+        /* Schriftzug Coming Soon */
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 300; /* Dünn und elegant */
+            letter-spacing: 8px; /* Großer Zeichenabstand wirkt edel */
+            text-transform: uppercase;
+            margin: 0;
+            opacity: 0;
+            
+            /* Einblenden mit Verzögerung nach dem Logo */
+            animation: fadeIn 1.5s ease-out 0.5s forwards;
+        }
+
+        /* Animation zum Einblenden */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px); /* Kommt leicht von unten */
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Anpassungen für Handys */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5rem;
+                letter-spacing: 4px;
+            }
+            .logo {
+                max-width: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Dein Logo -->
+        <img src="./assets/SD WOHNBAU_Logo.png" alt="SD WOHNBAU" class="logo">
+        
+        <!-- Text -->
+        <h1>Coming Soon</h1>
+    </div>
+
+</body>
+</html>
