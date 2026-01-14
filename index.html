@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SD WOHNBAU - Coming Soon</title>
     <meta name="description" content="SD WOHNBAU - Unsere neue Webseite entsteht gerade.">
+
+    <!-- Google Font - Heebo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
+
     <style>
         /* Grundlegende Einstellungen */
         * {
@@ -14,24 +20,25 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            height: 100vh; /* Volle Bildschirmhöhe */
+            font-family: 'Heebo', sans-serif;
+            min-height: 100vh;
             width: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            color: #ffffff;
-            overflow: hidden; /* Keine Scrollbalken */
-            
-            /* Animierter Hintergrund */
-            /* Wir nutzen #727070 als Basis und variieren leicht in Helligkeit */
-            background: linear-gradient(-45deg, #565454, #727070, #8e8c8c, #727070);
+            overflow-x: hidden;
+            overflow-y: auto;
+            position: relative;
+            padding: 30px 0;
+
+            /* Eleganter Farbverlauf mit Markenfarben */
+            background: linear-gradient(135deg, #b9c8d1 0%, #aeb1b6 50%, #727070 100%);
             background-size: 400% 400%;
-            animation: gradientAnimation 8s ease infinite;
+            animation: gradientAnimation 15s ease infinite;
         }
 
-        /* Animation für den Hintergrund */
+        /* Sanfte Hintergrund-Animation */
         @keyframes gradientAnimation {
             0% {
                 background-position: 0% 50%;
@@ -44,45 +51,94 @@
             }
         }
 
-        /* Container für Inhalt */
+        /* Dekorative Elemente im Hintergrund */
+        .background-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+
+        .shape1 {
+            width: 300px;
+            height: 300px;
+            background: #9AD749;
+            top: -100px;
+            right: -50px;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .shape2 {
+            width: 200px;
+            height: 200px;
+            background: #b9c8d1;
+            bottom: -50px;
+            left: 10%;
+            animation: float 15s ease-in-out infinite reverse;
+        }
+
+        .shape3 {
+            width: 150px;
+            height: 150px;
+            background: #9AD749;
+            top: 60%;
+            right: 15%;
+            animation: float 18s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+            }
+            50% {
+                transform: translateY(-30px) translateX(30px);
+            }
+        }
+
+        /* Hauptcontainer */
         .container {
             text-align: center;
-            padding: 20px;
             z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        /* Logo Einstellungen */
+        /* Logo */
         .logo {
-            max-width: 600px; /* Maximale Breite */
-            width: 80%; /* Auf Handys responsive */
+            max-width: 450px;
+            width: 80%;
             height: auto;
-            margin-bottom: 0px;
-            /* Optional: Leichter Schatten für Tiefe */
-            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.2));
-            
-            /* Sanftes Einblenden beim Laden */
+            margin-bottom: 35px;
+            filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.2));
             opacity: 0;
-            animation: fadeIn 1.5s ease-out forwards;
+            animation: fadeIn 1.2s ease-out 0.3s forwards;
         }
 
-        /* Schriftzug Coming Soon */
-        h1 {
-            font-size: 2.1rem;
-            font-weight: 300; /* Dünn und elegant */
-            letter-spacing: 8px; /* Großer Zeichenabstand wirkt edel */
-            text-transform: uppercase;
-            margin: 0;
+        /* Content Box - nur für Text */
+        .content-box {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            padding: 30px 40px;
+            max-width: 600px;
+            width: 85%;
+            backdrop-filter: blur(10px);
             opacity: 0;
-            
-            /* Einblenden mit Verzögerung nach dem Logo */
-            animation: fadeIn 1.5s ease-out 0.5s forwards;
+            animation: fadeInUp 1.2s ease-out 0.6s forwards;
         }
 
-        /* Animation zum Einblenden */
-        @keyframes fadeIn {
+        @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(20px); /* Kommt leicht von unten */
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -90,26 +146,160 @@
             }
         }
 
-        /* Responsive Anpassungen für Handys */
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 1.5rem;
-                letter-spacing: 4px;
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
             }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Coming Soon Überschrift */
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 300;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: #4a494d;
+            margin-bottom: 15px;
+            margin-top: 0;
+        }
+
+        /* Untertitel */
+        .subtitle {
+            font-size: 1.05rem;
+            font-weight: 400;
+            color: #727070;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        /* Akzent-Linie */
+        .accent-line {
+            width: 70px;
+            height: 3px;
+            background: linear-gradient(90deg, #9AD749, #b9c8d1);
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+
+        /* Info-Text */
+        .info-text {
+            font-size: 0.9rem;
+            color: #727070;
+            font-weight: 400;
+            margin-bottom: 0;
+        }
+
+        /* Responsive Anpassungen */
+        @media (max-width: 768px) {
+            body {
+                padding: 25px 0;
+            }
+
+            .content-box {
+                padding: 25px 30px;
+                width: 90%;
+            }
+
+            h1 {
+                font-size: 1.7rem;
+                letter-spacing: 4px;
+                margin-bottom: 12px;
+            }
+
+            .subtitle {
+                font-size: 0.95rem;
+                margin-bottom: 20px;
+            }
+
+            .accent-line {
+                margin: 18px auto;
+                width: 60px;
+            }
+
+            .info-text {
+                font-size: 0.85rem;
+            }
+
             .logo {
-                max-width: 250px;
+                max-width: 320px;
+                margin-bottom: 30px;
+            }
+
+            .shape1, .shape2, .shape3 {
+                opacity: 0.05;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 20px 0;
+            }
+
+            .content-box {
+                padding: 22px 25px;
+            }
+
+            h1 {
+                font-size: 1.4rem;
+                letter-spacing: 3px;
+                margin-bottom: 10px;
+            }
+
+            .subtitle {
+                font-size: 0.88rem;
+                margin-bottom: 18px;
+            }
+
+            .accent-line {
+                margin: 15px auto;
+                width: 50px;
+            }
+
+            .info-text {
+                font-size: 0.8rem;
+            }
+
+            .logo {
+                max-width: 260px;
+                margin-bottom: 25px;
             }
         }
     </style>
 </head>
 <body>
 
+    <!-- Dekorative Hintergrund-Elemente -->
+    <div class="background-shapes">
+        <div class="shape shape1"></div>
+        <div class="shape shape2"></div>
+        <div class="shape shape3"></div>
+    </div>
+
+    <!-- Hauptinhalt -->
     <div class="container">
-        <!-- Dein Logo -->
+        <!-- Logo außerhalb der weißen Box -->
         <img src="./assets/SD WOHNBAU_Logo.png" alt="SD WOHNBAU" class="logo">
-        
-        <!-- Text -->
-        <h1>Coming Soon</h1>
+
+        <!-- Weiße Content Box nur für Text -->
+        <div class="content-box">
+            <h1>Coming Soon</h1>
+
+            <div class="accent-line"></div>
+
+            <p class="subtitle">
+                Wir arbeiten an etwas Großartigem.<br>
+                Unsere neue Webseite wird bald verfügbar sein.
+            </p>
+
+            <p class="info-text">
+                Freuen Sie sich auf innovative Wohnkonzepte und moderne Immobilienlösungen.
+            </p>
+        </div>
     </div>
 
 </body>
